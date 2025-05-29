@@ -32,6 +32,4 @@ public class Ruta {
     @Column(nullable = false)
     private Boolean isActive;
 
-
-
 }

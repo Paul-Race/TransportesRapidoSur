@@ -37,4 +37,12 @@ public class EnvioService {
         return envioRepository.save(envio);
     }
 
+    public List<Envio> asignarEnvios(Integer rutaId){
+        List<Envio> envios = envioRepository.findAll();
+        for (Envio envio : envios) {
+            envio.setRutaId(rutaId);
+        }
+        return envios;
+    }
+
 }

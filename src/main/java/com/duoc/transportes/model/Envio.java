@@ -24,6 +24,9 @@ public class Envio {
     @Column(nullable = false)
     private Integer remitenteId;
 
+    @Column(nullable = true)
+    private Integer rutaId;
+
     @Column(nullable = false)
     private Integer ubicacionId;
 
