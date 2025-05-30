@@ -36,9 +36,9 @@ public class EnvioController {
     public ResponseEntity<?> obtenerEstadoEnvio(@PathVariable Integer id) {
         boolean esta_activo = envioService.ObtenerEstado(id);
         if (esta_activo) {
-            return ResponseEntity.status(200).body("SIIIII Esta en camino😁");
+            return ResponseEntity.status(200).body("SIIIII Esta en camino!! 🚛");
         }
-        return ResponseEntity.status(400).body("Su pedido esta en espera😢");
+        return ResponseEntity.status(400).body("Su pedido esta entregadooo!!!!!📦");
     }
 
     @DeleteMapping("/api/v1/envios/{id}")
@@ -61,14 +61,10 @@ public class EnvioController {
         return ResponseEntity.status(201).body(envioGuardado);
     }
 
-    @PostMapping("/api/v1/envios/ConfirmaEntrega")
-    public ResponseEntity<?> confirmaEntrega(@RequestBody Envio envio) {
-        Envio envioBD = envioService.findById(envio.getId());
-        if (null == envioBD) {
-            return ResponseEntity.status(404).body("Envio no encontrado");
-        }
-        Envio envioGuardado = envioService.saveChanges(envioBD);
-        return ResponseEntity.status(201).body(envioGuardado);
+    @PutMapping("/api/v1/envios/ConfirmaEntrega/{id}")
+    public ResponseEntity<?> confirmaEntrega(@PathVariable Integer id) {
+        Envio envioActualizado = envioService.finalizarEnvio(id);
+        return ResponseEntity.status(201).body(envioActualizado);
     }
 
 }
