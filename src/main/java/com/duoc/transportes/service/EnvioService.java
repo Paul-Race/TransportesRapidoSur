@@ -53,4 +53,9 @@ public class EnvioService {
         return envio.active;
     }
 
+    // Ejecuta cambios
+    public Envio saveChanges(Envio envio) {
+        envioRepository.deleteById(envio.getId());
+        return envioRepository.save(envio);
+    }
 }

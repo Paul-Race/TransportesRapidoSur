@@ -61,5 +61,14 @@ public class EnvioController {
         return ResponseEntity.status(201).body(envioGuardado);
     }
 
+    @PostMapping("/api/v1/envios/ConfirmaEntrega")
+    public ResponseEntity<?> confirmaEntrega(@RequestBody Envio envio) {
+        Envio envioBD = envioService.findById(envio.getId());
+        if (null == envioBD) {
+            return ResponseEntity.status(404).body("Envio no encontrado");
+        }
+        Envio envioGuardado = envioService.saveChanges(envioBD);
+        return ResponseEntity.status(201).body(envioGuardado);
+    }
 
 }
