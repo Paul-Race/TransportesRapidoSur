@@ -32,6 +32,15 @@ public class EnvioController {
         return ResponseEntity.status(200).body(envioService.findById(id));
     }
 
+    @GetMapping("/api/v1/envios/obtenerEstado/{id}")
+    public ResponseEntity<?> obtenerEstadoEnvio(@PathVariable Integer id) {
+        boolean esta_activo = envioService.ObtenerEstado(id);
+        if (esta_activo) {
+            return ResponseEntity.status(200).body("SIIIII Esta en camino😁");
+        }
+        return ResponseEntity.status(400).body("Su pedido esta en espera😢");
+    }
+
     @DeleteMapping("/api/v1/envios/{id}")
     public ResponseEntity<?> deleteEnvio(@PathVariable Integer id) {
         Envio envio = envioService.findById(id);

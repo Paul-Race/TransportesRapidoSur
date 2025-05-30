@@ -31,6 +31,6 @@ public class Envio {
     private Integer ubicacionId;
 
     @Column(nullable = false)
-    private boolean isActive;
+    public boolean active;
 
 }

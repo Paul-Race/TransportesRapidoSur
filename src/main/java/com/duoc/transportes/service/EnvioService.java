@@ -45,4 +45,12 @@ public class EnvioService {
         return envios;
     }
 
+    public boolean ObtenerEstado(Integer id){
+        Envio envio = envioRepository.findById(id).orElse(null);
+        if(envio == null){
+            return false;
+        }
+        return envio.active;
+    }
+
 }
