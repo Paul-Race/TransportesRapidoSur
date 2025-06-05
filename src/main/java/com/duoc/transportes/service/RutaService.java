@@ -37,4 +37,8 @@ public class RutaService {
         return rutaRepository.save(ruta);
     }
 
+    public List<Ruta> obtenerHojaDeRutas(Integer repartidorId){
+        return rutaRepository.findByRepartidorId(repartidorId);
+    }
+
 }

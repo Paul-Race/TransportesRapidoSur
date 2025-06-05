@@ -52,5 +52,10 @@ public class RutaController {
         return ResponseEntity.status(201).body(rutaGuardado);
     }
 
+    @GetMapping("/api/v1/rutas/repartidor/{id}")
+    public ResponseEntity<?> obetenerHojaRutas(@PathVariable Integer id) {
+        return ResponseEntity.status(200).body(rutaService.obtenerHojaDeRutas(id));
+    }
+
 
 }

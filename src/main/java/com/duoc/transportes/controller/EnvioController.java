@@ -67,4 +67,9 @@ public class EnvioController {
         return ResponseEntity.status(201).body(envioActualizado);
     }
 
+    @GetMapping("/api/v1/envios/generarBoleta/{id}")
+    public ResponseEntity<?> getBoleta(@PathVariable Integer id) {
+        return ResponseEntity.status(200).body(envioService.obtenerBoleta(id));
+    }
+
 }

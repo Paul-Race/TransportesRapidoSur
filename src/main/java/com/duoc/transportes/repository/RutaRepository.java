@@ -8,4 +8,5 @@ import java.util.List;
 
 @Repository
 public interface RutaRepository extends JpaRepository<Ruta, Integer> {
+    List<Ruta> findByRepartidorId(Integer repartidorId);
 }

@@ -59,4 +59,10 @@ public class EnvioService {
         envioBbdd.active = false;
         return envioRepository.save(envioBbdd);
     }
+
+    //traer un envio
+    public String obtenerBoleta(Integer id){
+        Envio envio = envioRepository.findById(id).orElse(null);
+        return "Su pago n° " + envio.getPagoId().toString() + " fue entregado exitosamente a la persona " + envio.getRemitenteId().toString() + " en la ubicacion " + envio.getUbicacionId().toString() + ".";
+    }
 }
